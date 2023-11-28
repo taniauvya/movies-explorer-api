@@ -8,6 +8,8 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const cors = require('./middlewares/cors');
 
 const { PORT = 3000 } = process.env;
+const { MONGO_URL } = require('./config');
+
 const app = express();
 
 mongoose.connect('mongodb://127.0.0.1:27017/bitfilmsdb');

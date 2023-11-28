@@ -11,6 +11,8 @@ module.exports.handleUpdateErr = (next, err, notFoundMsg) => {
     errRes = new ValidError(err.message);
   } else if (err instanceof DocumentNotFoundError) {
     errRes = new NotFoundError(notFoundMsg);
+  } else if (err.code === 11000) {
+    errRes = new DupError();
   }
 
   next(errRes);

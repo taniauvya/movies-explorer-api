@@ -45,8 +45,8 @@ module.exports.createUser = (req, res, next) => {
 };
 
 module.exports.updateUser = (req, res, next) => {
-  const { name } = req.body;
-  User.findByIdAndUpdate(req.user._id, { name }, {
+  const { name, email } = req.body;
+  User.findByIdAndUpdate(req.user._id, { name, email }, {
     new: true, // обработчик then получит на вход обновлённую запись
     runValidators: true, // данные будут валидированы перед изменением
     upsert: false, // если пользователь не найден, он не будет создан

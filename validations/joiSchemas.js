@@ -19,6 +19,7 @@ module.exports.signin = celebrate({
 module.exports.updateUser = celebrate({
   body: Joi.object().keys({
     name: Joi.string().min(2).max(30),
+    email: Joi.string().email(),
   }),
 });
 
@@ -38,7 +39,6 @@ module.exports.createMovie = celebrate({
     image: Joi.string().required().pattern(linkRx),
     trailerLink: Joi.string().required().pattern(linkRx),
     thumbnail: Joi.string().required().pattern(linkRx),
-    owner: Joi.string().required().hex().length(MONGO_ID_LENGTH),
     movieId: Joi.number(),
     nameRU: Joi.string(),
     nameEN: Joi.string(),
