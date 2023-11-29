@@ -12,7 +12,7 @@ const { MONGO_URL } = require('./config');
 
 const app = express();
 
-mongoose.connect('mongodb://127.0.0.1:27017/bitfilmsdb');
+mongoose.connect(MONGO_URL);
 
 app.use(express.json());
 app.use(rateLimiter);
